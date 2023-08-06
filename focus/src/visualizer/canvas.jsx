@@ -1,13 +1,13 @@
 import { Component, createRef } from 'react';
-import soundFile from '../audio/drop.mp3';
+import soundFile from '../audio/meditate.mp3';
 
 let ctx, x_end, y_end, bar_height;
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-const bars = 555;
-const bar_width = 1;
-const radius = 0;
+const bars = 80;
+const bar_width = 10;
+const radius = 1;
 const center_x = width / 2;
 const center_y = height / 2;
 
@@ -16,6 +16,7 @@ class Canvas extends Component {
         super(props)
         this.audio = new Audio(soundFile);
         this.canvas = createRef();
+        this.button = createRef();
     }
 
     animationLooper(canvas) {
@@ -63,6 +64,7 @@ class Canvas extends Component {
     }
 
     togglePlay = () => {
+        this.button.current.style.display = "none";
         const { audio } = this;
         if(audio.paused) {
             audio.play();
@@ -88,7 +90,13 @@ class Canvas extends Component {
 
     render() {
         return <>
-            <button onClick={this.togglePlay}>Play/Pause</button>
+        <div ref={this.button} >
+            <h1>Mindful Genius</h1>
+            <p>Click around the page while staring at the mouse to calibrate the eye tracker <br /> Write your meditation topic:</p>
+            <input type="text" placeholder="Your topic e.g. Breathing"></input>
+            <br></br>
+            <button onClick={this.togglePlay}>Start Meditation</button>
+        </div>
             <canvas ref={this.canvas}  />
         </>
     }

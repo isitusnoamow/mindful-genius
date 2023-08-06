@@ -17,16 +17,16 @@ function App() {
       }
       console.log(data,clock)
       if (data != null) {
-        if(data.x < window.innerWidth * 0.25 || data.x > window.innerWidth * 0.75 || data.y < window.innerHeight * 0.25 || data.y > window.innerHeight * 0.75)  console.log("uhoh")
+        if(data.x < window.innerWidth * 0.25 || data.x > window.innerWidth * 0.75 || data.y < window.innerHeight * 0.25 || data.y > window.innerHeight * 0.75)  alert("Focus your eyes on the center of the screen")
       }
     }).begin()
   },[])
 
   
   return (
-    <>
+    <div>
      <Canvas />
-    </>
+    </div>
   )
 }
 
