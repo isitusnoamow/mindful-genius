@@ -13,9 +13,9 @@ config({ path: `${__dirname}/../.env` });
 
 export const generateTextToSpeech = async (inputText) => {
   const API_KEY = process.env.ELEVENLABS_API_KEY;
-  const VOICE_ID = 'VR6AewLTigWG4xSOukaG';
+  const VOICE_ID = 'AZnzlk1XvdvUeBnXmlld';
 
-  const options = {
+  const options = { 
     method: 'POST',
     url: `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`,
     headers: {

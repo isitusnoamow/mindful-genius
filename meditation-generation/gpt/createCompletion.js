@@ -9,8 +9,8 @@ config({ path: `${__dirname}/../.env` });
 
 const API_KEY = process.env.OPENAI_API_KEY
 
-export async function createCompletion(prompt) {
-  try {
+export const createCompletion = async (prompt) => {
+  try { 
     const APIBody = {
       'model': 'text-davinci-003',
       'prompt': prompt,
@@ -31,9 +31,8 @@ export async function createCompletion(prompt) {
     })
 
     const data = await response.json();
-    console.log(data)
 
-    return data
+    return data.choices[0].text
 
   } catch (error) {
     console.error(error)
