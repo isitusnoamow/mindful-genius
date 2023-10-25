@@ -22,7 +22,6 @@ function App() {
     }).begin()
   },[])
 
-  
   return (
     <div>
      <Canvas />
